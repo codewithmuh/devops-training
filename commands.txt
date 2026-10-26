@@ -1,0 +1,49 @@
+# DevOps Git Command Cheatsheet
+
+## Repository Initialization & Remote
+git init                               # Initialize new Git repository
+git clone <repo_url>                   # Clone remote repository locally
+git remote -v                          # List configured remote repositories
+git remote add origin <repo_url>       # Associate local repo with remote origin
+
+## Branching & Switching
+git branch                             # List local branches
+git branch -a                          # List local and remote tracking branches
+git branch <branch-name>               # Create new branch
+git checkout -b <branch-name>          # Create and switch to new branch
+git switch -c <branch-name>            # Modern Git: create and switch
+git branch -d <branch-name>            # Safe branch deletion (merged only)
+git branch -D <branch-name>            # Force branch deletion
+
+## Staging & Commits
+git status                             # Inspect working tree status
+git add <file>                         # Stage specific file
+git add .                              # Stage all changes
+git commit -m "feat: description"      # Commit staged changes with message
+git commit -am "fix: description"      # Stage tracked files and commit
+git commit --amend                     # Amend latest commit message or content
+
+## Inspecting History
+git log --oneline --graph --decorate   # Visual branch history graph
+git diff                               # View unstaged modifications
+git diff --staged                      # View staged modifications
+
+## Remote Synchronization & Merging
+git fetch origin                       # Fetch latest changes from remote without merging
+git pull origin <branch>               # Fetch and merge remote changes
+git push origin <branch>               # Push local branch to remote
+git push -u origin <branch>            # Push and set upstream tracking
+git merge <feature-branch>             # Merge feature branch into current branch
+git rebase <target-branch>             # Rebase commits onto target branch
+
+## Stashing Work-in-Progress
+git stash                              # Stash uncommitted changes
+git stash list                         # View list of stashes
+git stash pop                          # Restore and remove latest stash
+git stash apply                        # Restore latest stash without removing
+
+## Undoing Changes
+git restore <file>                     # Discard changes in working directory
+git restore --staged <file>            # Unstage file without discarding changes
+git reset --soft HEAD~1                # Undo latest commit, keep changes staged
+git reset --hard HEAD~1                # Dangerous: undo commit and discard changes
